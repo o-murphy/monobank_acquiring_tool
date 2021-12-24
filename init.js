@@ -62,7 +62,7 @@
                     }
                 }
                 console.log(data)
-                postData(url, data).then((json) => {console.log(json);sendTgAdminMsg(json)})
+                postData(url, data).then((json) => {console.log(json);sendTgAdminMsg(json);document.getElementById('mainForm').submit()})
             }
         }
 
@@ -91,11 +91,10 @@
 
         function createInvoice() {
             getInvoiceID()
-            document.getElementById('mainForm').submit()
+            // document.getElementById('mainForm').submit()
         }
 
-        document.getElementById('mainForm').onsubmit = createInvoice
-        document.getElementById('bBtn').onclick = createInvoice
+        document.getElementById('submitBtn').onclick = createInvoice
 
     } catch (error) {
         console.log(error)
