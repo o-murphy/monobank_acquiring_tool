@@ -14,9 +14,12 @@
         }
 
         function set_fields() {
-            document.getElementById('aquireToken').value = getCookie('atoken')
-            document.getElementById('tgBotToken').value = getCookie('tgtoken')
-            document.getElementById('tgBotAdminID').value = getCookie('tgadminid')
+            aToken = getCookie('atoken')
+            tgToken = getCookie('tgtoken')
+            getCookie = getCookie('tgadminid')
+            if (aToken) {document.getElementById('aquireToken').value = aToken}
+            if (aToken) {document.getElementById('tgBotToken').value = tgToken}
+            if (aToken) {document.getElementById('tgBotAdminID').value = getCookie}
         }
 
         const params = {
