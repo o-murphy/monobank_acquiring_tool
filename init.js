@@ -42,7 +42,7 @@
 
         set_fields()
 
-        function getInvoiceID() {
+        function createInvoice() {
             if (aToken) {
                 url = `https://api.monobank.ua/api/merchant/invoice/create`
                 data = {
@@ -61,8 +61,14 @@
                         ]
                     }
                 }
-                console.log(data)
-                postData(url, data).then((json) => {console.log(json);sendTgAdminMsg(json);document.getElementById('mainForm').submit()})
+                postData(url, data).then((json) => {
+                    if (!json.errCode) {
+                    sendTgAdminMsg(json);
+                    document.getElementById('mainForm').submit()
+                    } else {
+                        document.getElementById('mainForm').requestSubmit()
+                    }
+                })
             }
         }
 
@@ -87,11 +93,6 @@
                 f_url = `${url}?chat_id=${tgAdminID}&text=${encodeURI(text)}&parse_mode=HTML&disable_notification=true`;
                 fetch(f_url)
             }
-        }
-
-        function createInvoice() {
-            getInvoiceID()
-            // document.getElementById('mainForm').submit()
         }
 
         document.getElementById('submitBtn').onclick = createInvoice
