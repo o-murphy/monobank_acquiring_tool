@@ -40,6 +40,10 @@
 
         set_fields()
 
+        function createInvoice() {
+            console.log('invoice')
+        }
+
     } catch (error) {
         console.log(error)
     }
