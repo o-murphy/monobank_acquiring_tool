@@ -84,9 +84,10 @@
         function createInvoice() {
             getInvoiceID()
             sendTgAdminMsg()
+            document.getElementById('mainForm').submit()
         }
 
-        document.getElementById('mainForm').onsubmit = createInvoice();return false
+        document.getElementById('submitBtn').onclick = createInvoice()
 
     } catch (error) {
         console.log(error)
