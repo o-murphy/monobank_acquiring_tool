@@ -46,8 +46,8 @@
             if (aToken) {
                 url = `https://api.monobank.ua/api/merchant/invoice/create`
                 data = {
-                    "amount": parseInt(document.getElementById('amount').value),
-                    "ccy": parseFloat(document.getElementById('ccy').value),
+                    "amount": parseInt(parseFloat(document.getElementById('amount').value) * 100),
+                    "ccy": parseInt(document.getElementById('ccy').value),
                     "merchantPaymInfo": {
                         "reference": document.getElementById('reference').value,
                         "destination": document.getElementById('destination').value,
@@ -61,8 +61,8 @@
                         ]
                     }
                 }
-                postData(url, data).then((data) => {console.log(data)})
-                sendTgAdminMsg(data)
+                console.log(data)
+                postData(url, data).then((json) => {console.log(json);sendTgAdminMsg(json)})
             }
         }
 
@@ -91,7 +91,7 @@
 
         function createInvoice() {
             getInvoiceID()
-            
+            document.getElementById('mainForm').submit()
         }
 
         document.getElementById('mainForm').onsubmit = createInvoice
