@@ -44,6 +44,8 @@
             console.log('invoice')
         }
 
+        document.getElementById('submitBtn').onclick(createInvoice())
+
     } catch (error) {
         console.log(error)
     }
