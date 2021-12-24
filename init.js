@@ -13,9 +13,7 @@
             return matches ? decodeURIComponent(matches[1]) : undefined;
         }
 
-        const aToken
-        const tgToken
-        const tgAdminID
+        let aToken, tgToken, tgAdminID
 
         function set_fields() {
             aToken = getCookie('aToken')
