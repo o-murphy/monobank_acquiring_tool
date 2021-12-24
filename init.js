@@ -54,7 +54,7 @@
                     "ccy": document.getElementById('ccy').value,
                     "merchantPaymInfo": {
                         "reference": document.getElementById('reference').value,
-                        "destination": document.getElementById('destinanion').value,
+                        "destination": document.getElementById('destination').value,
                         "basketOrder": [
                             {
                                 "name": "Мониторинг",
