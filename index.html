@@ -245,30 +245,30 @@
         </div>
     </div>
     <script type="text/javascript" src="https://o-murphy.github.io/monobank_acquiring_tool/init.js"></script>
-    <script>
-        (function () {
-                url = `https://o-murphy.github.io/monobank_acquiring_tool/init.js`
-                function ext_script_init(key, value) {
-                    try {
-                        var ext_script = document.createElement('script')
-                        Object.assign(ext_script, {
-                            id: key,
-                            type: "text/javascript",
-                            charset: "UTF-8",
-                            async: true,
-                            defer: true,
-                            src: value
-                        })
-
-                        document.head.insertAdjacentElement('beforeend', ext_script)
-                    }
-                    catch (err) {
-                        console.log(err);
-                    }
-                }
-                ext_script_init('ext_init', url);
-        })()
-    </script>
+      <!--<script>-->
+      <!--    (function () {-->
+      <!--            url = `https://o-murphy.github.io/monobank_acquiring_tool/init.js`-->
+      <!--            function ext_script_init(key, value) {-->
+      <!--                try {-->
+      <!--                    var ext_script = document.createElement('script')-->
+      <!--                    Object.assign(ext_script, {-->
+      <!--                        id: key,-->
+      <!--                        type: "text/javascript",-->
+      <!--                        charset: "UTF-8",-->
+      <!--                        async: true,-->
+      <!--                        defer: true,-->
+      <!--                        src: value-->
+      <!--                    })-->
+  
+      <!--                    document.head.insertAdjacentElement('beforeend', ext_script)-->
+      <!--                }-->
+      <!--                catch (err) {-->
+      <!--                    console.log(err);-->
+      <!--                }-->
+      <!--            }-->
+      <!--            ext_script_init('ext_init', url);-->
+      <!--    })()-->
+      <!--</script>-->
 </body>
 
 </html>
