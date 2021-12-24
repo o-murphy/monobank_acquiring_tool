@@ -14,18 +14,18 @@
         }
 
         function set_fields() {
-            aToken = getCookie('atoken')
-            tgToken = getCookie('tgtoken')
-            getCookie = getCookie('tgadminid')
+            aToken = getCookie('aToken')
+            tgToken = getCookie('tgToken')
+            tgAdminID = getCookie('tgAdminID')
             if (aToken) {document.getElementById('aquireToken').value = aToken}
             if (aToken) {document.getElementById('tgBotToken').value = tgToken}
-            if (aToken) {document.getElementById('tgBotAdminID').value = getCookie}
+            if (aToken) {document.getElementById('tgBotAdminID').value = tgAdminID}
         }
 
         const params = {
             aToken: get('atoken'),
             tgToken: get('tgtoken'),
-            adminID: get('tgadminid')
+            tgAdminID: get('tgadminid')
         }
 
         let date = new Date(Date.now() + (31 * 86400e3));
