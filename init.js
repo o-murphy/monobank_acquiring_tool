@@ -50,8 +50,8 @@
                 }
                 url = `https://api.monobank.ua/api/merchant/invoice/create`
                 data = {
-                    "amount": document.getElementById('amount').value,
-                    "ccy": document.getElementById('ccy').value,
+                    "amount": parseInt(document.getElementById('amount').value),
+                    "ccy": parseInt(document.getElementById('ccy').value),
                     "merchantPaymInfo": {
                         "reference": document.getElementById('reference').value,
                         "destination": document.getElementById('destination').value,
