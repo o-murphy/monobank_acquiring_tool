@@ -2,273 +2,251 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div class="row">
+  <div class="row">
 
-        <div class="card text-white bg-dark mb-3 center-block">
-            <div class="card-header row">
-                <h2 class="text-white">AQUIRE TOOLS</h2>
-                <p>for Monobank Aquiring</p>
+    <div class="card text-white bg-dark mb-3 center-block">
+      <div class="card-header row">
+        <h2 class="text-white">AQUIRE TOOLS</h2>
+        <p>
+          for Monobank Aquiring
+        </p>
+      </div>
+
+      <div class="card-body">
+        <form class="container" id="mainForm">
+          <fieldset>
+            <legend>
+              <div class="card-title">
+                <h4 class="text-white">Invoice Creation Tool</h4>
+              </div>
+            </legend>
+            <div class="form-group row">
+              <label for="aquireToken" class="col-sm-3 col-form-label col-form-label-sm">Monobank Aquire
+                Token</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control form-control-sm" id="aquireToken"
+                aria-describedby="" placeholder="Enter aquire token" required>
+                <small id="aquireHelp" class="form-text text-muted"></small>
+                <p></p>
+              </div>
             </div>
+          </fieldset>
+          <fieldset class="row">
+            <div class="form-group col-sm-6">
+              <div class="form-group row">
+                <label for="amount" class="col-sm-6 col-form-label col-form-label-sm">Amount</label>
+                <div class="col-sm-6">
+                  <input type="number" min="0.01" step="0.01" class="form-control form-control-sm"
+                  id="amount" aria-describedby="" placeholder="100.00" required>
+                  <small id="amountHelp" class="form-text text-muted"></small>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-group col-sm-6">
+              <div class="form-group row">
+                <label for="ccy" class="col-sm-6 col-form-label col-form-label-sm"
+                  required>Currency</label>
+                <div class="col-sm-6">
+                  <select class="form-select form-select-sm" id="ccy">
+                    <option value="980">UAH</option>
+                    <option value="840">USD</option>
+                    <option value="978">EUR</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <p></p>
+          <fieldset>
+            <div id="merchantPaymInfo" class="card bg-dark border-secondary text-white mb-3">
+              <!-- <div class="card-header row">
+                                          <h3 class="text-white">Merchant Payment Info</h3>
+                                      </div> -->
+              <div class="card-body" id="merchantPaymInfo">
+                <div class="card-title row">
+                  <h4 class="col-sm-8 text-white">Merchant Payment Info</h4>
+                  <span class="col-sm-4">(if needed)</span>
+                </div>
+                <!-- <fieldset> -->
+                <div class="form-group row">
+                  <label for="reference"
+                    class="col-sm-4 col-form-label col-form-label-sm">Reference</label>
+                  <div class="col-sm-8">
+                    <input type="" class="form-control form-control-sm" id="reference"
+                    aria-describedby="" placeholder="Reference">
+                    <small id="destinationHelp" class="row form-text text-muted"></small>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <label for="destination"
+                    class="col-sm-4 col-form-label col-form-label-sm">Destination</label>
+                  <div class="col-sm-8">
+                    <input type="" class="form-control form-control-sm" id="destination"
+                    aria-describedby="" placeholder="Destination">
+                    <small id="destinationHelp" class="row form-text text-muted"></small>
+                  </div>
+
+                </div>
+
+                <div class="card-title row">
+                  <h4 class="col-sm-8 text-white">Basket Order</h4>
+                  <span class="col-sm-4">(if needed)</span>
+                </div>
+
+                <div class="form-group">
+                  <!-- <label for="basketOrder" class="form-label col-form-label-sm mt-4">Basket Order</label> -->
+                  <table class="table table-sm table-hover" id='basketOrder'>
+                    <thead>
+                      <tr class="table-primary">
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Sum</th>
+                        <th scope="col">Icon</th>
+                        <th scope="col">
+                          <a><i class="btn btn-sm btn-success fa fa-plus"></i></a>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="basketOrder" id="basketOrder">
+                      <tr class="table-primary">
+                        <th scope="row">1</th>
+                        <td>
+                          <input type="" class="bo-name form-control form-control-sm"
+                          aria-describedby="" placeholder="Name">
+                        </td>
+                        <td>
+                          <input type="number" min="0.01" step="0.01"
+                          class="bo-qty form-control form-control-sm"
+                          aria-describedby="" placeholder="1">
+                        </td>
+                        <td>
+                          <input type="number" min="0.01" step="0.01"
+                          class="bo-amount form-control form-control-sm"
+                          aria-describedby="" placeholder="100.00">
+                        </td>
+                        <td>
+                          <input type="url" class="bo-icon form-control form-control-sm"
+                          aria-describedby="" placeholder="Url">
+                        </td>
+                        <td>
+                          <a><i class="btn btn-sm btn-danger fa fa-minus"></i></input></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- </fieldset> -->
+            </div>
+          </div>
+        </fieldset>
+
+        <p></p>
+
+        <fieldset>
+          <div id="merchantPaymInfo" class="card bg-dark border-secondary text-white mb-3">
 
             <div class="card-body">
-                <form class="container" id="mainForm">
-                    <fieldset>
-                        <legend>
-                            <div class="card-title">
-                                <h4 class="text-white">Invoice Creation Tool</h4>
-                            </div>
-                        </legend>
-                        <div class="form-group row">
-                            <label for="aquireToken" class="col-sm-3 col-form-label col-form-label-sm">Monobank Aquire
-                                Token</label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control form-control-sm" id="aquireToken"
-                                    aria-describedby="" placeholder="Enter aquire token" required>
-                                <small id="aquireHelp" class="form-text text-muted"></small>
-                                <p></p>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset class="row">
-                        <div class="form-group col-sm-6">
-                            <div class="form-group row">
-                                <label for="amount" class="col-sm-6 col-form-label col-form-label-sm">Amount</label>
-                                <div class="col-sm-6">
-                                    <input type="number" min="0.01" step="0.01" class="form-control form-control-sm"
-                                        id="amount" aria-describedby="" placeholder="100.00" required>
-                                    <small id="amountHelp" class="form-text text-muted"></small>
-                                </div>
-                            </div>
+              <div class="card-title row">
+                <h4 class="col-sm-8 text-white">Response settings</h4>
+                <span class="col-sm-4">(if needed)</span>
+              </div>
+              <div class="form-group row">
+                <label for="redirectUrl" class="col-sm-4 col-form-label col-form-label-sm">Redirect
+                  Url</label>
+                <div class="col-sm-8">
+                  <input type="" class="form-control form-control-sm" id="redirectUrl"
+                  aria-describedby="" placeholder="URL">
+                  <small id="destinationHelp" class="row form-text text-muted"></small>
+                </div>
 
-                        </div>
+              </div>
 
-                        <div class="form-group col-sm-6">
-                            <div class="form-group row">
-                                <label for="ccy" class="col-sm-6 col-form-label col-form-label-sm"
-                                    required>Currency</label>
-                                <div class="col-sm-6">
-                                    <select class="form-select form-select-sm" id="ccy">
-                                        <option value="980">UAH</option>
-                                        <option value="840">USD</option>
-                                        <option value="978">EUR</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <p></p>
-                    <fieldset>
-                        <div id="merchantPaymInfo" class="card bg-dark border-secondary text-white mb-3">
-                            <!-- <div class="card-header row">
-                            <h3 class="text-white">Merchant Payment Info</h3>
-                        </div> -->
-                            <div class="card-body" id="merchantPaymInfo">
-                                <div class="card-title row">
-                                    <h4 class="col-sm-8 text-white">Merchant Payment Info</h4>
-                                    <span class="col-sm-4">(if needed)</span>
-                                </div>
-                                <!-- <fieldset> -->
-                                <div class="form-group row">
-                                    <label for="reference"
-                                        class="col-sm-4 col-form-label col-form-label-sm">Reference</label>
-                                    <div class="col-sm-8">
-                                        <input type="" class="form-control form-control-sm" id="reference"
-                                            aria-describedby="" placeholder="Reference">
-                                        <small id="destinationHelp" class="row form-text text-muted"></small>
-                                    </div>
+              <div class="form-group row">
+                <label for="webHookUrl" class="col-sm-4 col-form-label col-form-label-sm">Web Hook
+                  Url</label>
+                <div class="col-sm-8">
+                  <input type="" class="form-control form-control-sm" id="webHookUrl"
+                  aria-describedby="" placeholder="URL">
+                  <small id="destinationHelp" class="row form-text text-muted"></small>
+                </div>
+              </div>
 
-                                </div>
-                                <div class="form-group row">
-                                    <label for="destination"
-                                        class="col-sm-4 col-form-label col-form-label-sm">Destination</label>
-                                    <div class="col-sm-8">
-                                        <input type="" class="form-control form-control-sm" id="destination"
-                                            aria-describedby="" placeholder="Destination">
-                                        <small id="destinationHelp" class="row form-text text-muted"></small>
-                                    </div>
-
-                                </div>
-
-                                <div class="card-title row">
-                                    <h4 class="col-sm-8 text-white">Basket Order</h4>
-                                    <span class="col-sm-4">(if needed)</span>
-                                </div>
-
-                                <div class="form-group">
-                                    <!-- <label for="basketOrder" class="form-label col-form-label-sm mt-4">Basket Order</label> -->
-                                    <table class="table table-sm table-hover" id='basketOrder'>
-                                        <thead>
-                                            <tr class="table-primary">
-                                                <th scope="col">#</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Quantity</th>
-                                                <th scope="col">Sum</th>
-                                                <th scope="col">Icon</th>
-                                                <th scope="col">
-                                                    <a><i class="btn btn-sm btn-success fa fa-plus"></i></a>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="basketOrder" id="basketOrder">
-                                            <tr class="table-primary">
-                                                <th scope="row">1</th>
-                                                <td>
-                                                    <input type="" class="bo-name form-control form-control-sm"
-                                                        aria-describedby="" placeholder="Name">
-                                                </td>
-                                                <td>
-                                                    <input type="number" min="0.01" step="0.01"
-                                                        class="bo-qty form-control form-control-sm"
-                                                        aria-describedby="" placeholder="1">
-                                                </td>
-                                                <td>
-                                                    <input type="number" min="0.01" step="0.01"
-                                                        class="bo-amount form-control form-control-sm"
-                                                        aria-describedby="" placeholder="100.00">
-                                                </td>
-                                                <td>
-                                                    <input type="url" class="bo-icon form-control form-control-sm"
-                                                        aria-describedby="" placeholder="Url">
-                                                </td>
-                                                <td>
-                                                    <a><i class="btn btn-sm btn-danger fa fa-minus"></i></input></a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <!-- </fieldset> -->
-                            </div>
-                        </div>
-                    </fieldset>
-
-                    <p></p>
-
-                    <fieldset>
-                        <div id="merchantPaymInfo" class="card bg-dark border-secondary text-white mb-3">
-
-                            <div class="card-body">
-                                <div class="card-title row">
-                                    <h4 class="col-sm-8 text-white">Response settings</h4>
-                                    <span class="col-sm-4">(if needed)</span>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="redirectUrl" class="col-sm-4 col-form-label col-form-label-sm">Redirect
-                                        Url</label>
-                                    <div class="col-sm-8">
-                                        <input type="" class="form-control form-control-sm" id="redirectUrl"
-                                            aria-describedby="" placeholder="URL">
-                                        <small id="destinationHelp" class="row form-text text-muted"></small>
-                                    </div>
-
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="webHookUrl" class="col-sm-4 col-form-label col-form-label-sm">Web Hook
-                                        Url</label>
-                                    <div class="col-sm-8">
-                                        <input type="" class="form-control form-control-sm" id="webHookUrl"
-                                            aria-describedby="" placeholder="URL">
-                                        <small id="destinationHelp" class="row form-text text-muted"></small>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="exampleInputEmail1"
-                                        class="col-sm-4 col-form-label col-form-label-sm">Email
-                                        address</label>
-                                    <div class="col-sm-8">
-                                        <input type="email" class="form-control form-control-sm" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Enter email">
-                                        <small id="emailHelp" class="form-text text-muted">We'll never share your data
-                                            with
-                                            anyone
-                                            else.</small>
-                                    </div>
-                                </div>
+              <div class="form-group row">
+                <label for="exampleInputEmail1"
+                  class="col-sm-4 col-form-label col-form-label-sm">Email
+                  address</label>
+                <div class="col-sm-8">
+                  <input type="email" class="form-control form-control-sm" id="exampleInputEmail1"
+                  aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your data
+                    with
+                    anyone
+                    else.</small>
+                </div>
+              </div>
 
 
-                                <div class="form-group row">
-                                    <label for="tgBotToken"
-                                        class="col-sm-4 col-form-label col-form-label-sm">Telegram Bot Token</label>
-                                    <div class="col-sm-8">
-                                        <input type="password" class="form-control form-control-sm"
-                                            id="tgBotToken" aria-describedby="emailHelp" placeholder="Token">
-                                        <small id="emailHelp" class="row form-text text-muted"></small>
-                                    </div>
-                                </div>
+              <div class="form-group row">
+                <label for="tgBotToken"
+                  class="col-sm-4 col-form-label col-form-label-sm">Telegram Bot Token</label>
+                <div class="col-sm-8">
+                  <input type="password" class="form-control form-control-sm"
+                  id="tgBotToken" aria-describedby="emailHelp" placeholder="Token">
+                  <small id="emailHelp" class="row form-text text-muted"></small>
+                </div>
+              </div>
 
-                                <div class="row">
+              <div class="row">
 
-                                    <div class="col-sm">
+                <div class="col-sm">
 
-                                        <div class="form-group row">
-                                            <label for="tgBotAdminID"
-                                                class="col-sm-4 col-form-label col-form-label-sm">Telegram Bot Admin
-                                                ID</label>
-                                            <div class="col-sm-8">
-                                                <input type="number" min="1" class="form-control form-control-sm"
-                                                    id="tgBotAdminID" aria-describedby="emailHelp" placeholder="ID">
-                                                <small id="emailHelp" class="row form-text text-muted"></small>
-                                            </div>
-                                        </div>
-                                    </div>
+                  <div class="form-group row">
+                    <label for="tgBotAdminID"
+                      class="col-sm-4 col-form-label col-form-label-sm">Telegram Bot Admin
+                      ID</label>
+                    <div class="col-sm-8">
+                      <input type="number" min="1" class="form-control form-control-sm"
+                      id="tgBotAdminID" aria-describedby="emailHelp" placeholder="ID">
+                      <small id="emailHelp" class="row form-text text-muted"></small>
+                    </div>
+                  </div>
+                </div>
 
-                                    <div class="col-sm">
-                                        <div class="form-group row">
-                                            <label for="tgClientID"
-                                                class="col-sm-4 col-form-label col-form-label-sm">Telegram Client
-                                                ID</label>
-                                            <div class="col-sm-8">
-                                                <input type="number" min="1" class="form-control form-control-sm"
-                                                    id="tgClientID" aria-describedby="emailHelp" placeholder="ID">
-                                                <small id="emailHelp" class="row form-text text-muted"></small>
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="col-sm">
+                  <div class="form-group row">
+                    <label for="tgClientID"
+                      class="col-sm-4 col-form-label col-form-label-sm">Telegram Client
+                      ID</label>
+                    <div class="col-sm-8">
+                      <input type="number" min="1" class="form-control form-control-sm"
+                      id="tgClientID" aria-describedby="emailHelp" placeholder="ID">
+                      <small id="emailHelp" class="row form-text text-muted"></small>
+                    </div>
+                  </div>
+                </div>
 
-                                </div>
+              </div>
 
 
-                            </div>
-                        </div>
-                    </fieldset>
-                    <button type="button" class="btn btn-primary col-sm-12" id='submitBtn'>Submit</button>
-                </form>
             </div>
-        </div>
+          </div>
+        </fieldset>
+        <button type="button" class="btn btn-primary col-sm-12" id='submitBtn'>Submit</button>
+      </form>
     </div>
-    <script type="text/javascript" src="https://o-murphy.github.io/monobank_acquiring_tool/init.js"></script>
-      <!--<script>-->
-      <!--    (function () {-->
-      <!--            url = `https://o-murphy.github.io/monobank_acquiring_tool/init.js`-->
-      <!--            function ext_script_init(key, value) {-->
-      <!--                try {-->
-      <!--                    var ext_script = document.createElement('script')-->
-      <!--                    Object.assign(ext_script, {-->
-      <!--                        id: key,-->
-      <!--                        type: "text/javascript",-->
-      <!--                        charset: "UTF-8",-->
-      <!--                        async: true,-->
-      <!--                        defer: true,-->
-      <!--                        src: value-->
-      <!--                    })-->
-  
-      <!--                    document.head.insertAdjacentElement('beforeend', ext_script)-->
-      <!--                }-->
-      <!--                catch (err) {-->
-      <!--                    console.log(err);-->
-      <!--                }-->
-      <!--            }-->
-      <!--            ext_script_init('ext_init', url);-->
-      <!--    })()-->
-      <!--</script>-->
+  </div>
+</div>
+<script type="text/javascript" src="https://o-murphy.github.io/monobank_acquiring_tool/init.js"></script>
 </body>
 
 </html>
