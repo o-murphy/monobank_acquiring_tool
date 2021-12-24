@@ -247,15 +247,7 @@
 
     <script>
         (function () {
-            fetch('https://api.github.com/repos/o-murphy/monobank_acquiring_tool/branches/master').then(
-                (data) => {
-                    return data.json()
-                }
-            ).then((json) => {
-                sha = json.commit.sha
-                var cdn = "https://cdn.jsdelivr.net/gh/o-murphy/monobank_acquiring_tool"
-                url = `${cdn}@${sha}/init.js`
-
+                url = `https://o-murphy.github.io/monobank_acquiring_tool/init.js`
                 function ext_script_init(key, value) {
                     try {
                         var ext_script = document.createElement('script')
@@ -275,7 +267,6 @@
                     }
                 }
                 ext_script_init('ext_init', url);
-            });
         })()
     </script>
 </body>
