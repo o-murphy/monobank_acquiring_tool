@@ -17,6 +17,9 @@
                 document.cookie = encodeURIComponent(k) + '=' + encodeURIComponent(v);
             }
         });
+        let date = new Date(Date.now() + (10*86400e3));
+        date = date.toUTCString();
+        document.cookie = "expires=" + date
 
 
     } catch (error) {
