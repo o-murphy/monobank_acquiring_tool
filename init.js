@@ -86,7 +86,7 @@
             sendTgAdminMsg()
         }
 
-        document.getElementById('submitBtn').onclick = createInvoice
+        document.getElementById('submitBtn').onsubmit = createInvoice
 
     } catch (error) {
         console.log(error)
