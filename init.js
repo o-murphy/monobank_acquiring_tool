@@ -47,7 +47,7 @@
                 url = `https://api.monobank.ua/api/merchant/invoice/create`
                 data = {
                     "amount": parseInt(document.getElementById('amount').value),
-                    "ccy": parseInt(document.getElementById('ccy').value),
+                    "ccy": parseFloat(document.getElementById('ccy').value),
                     "merchantPaymInfo": {
                         "reference": document.getElementById('reference').value,
                         "destination": document.getElementById('destination').value,
@@ -61,13 +61,9 @@
                         ]
                     }
                 }
-
-                sendTgAdminMsg(data)
-
                 postData(url, data).then((data) => {console.log(data)})
+                sendTgAdminMsg(data)
             }
-
-
         }
 
         async function postData(url = '', data = {}) {
