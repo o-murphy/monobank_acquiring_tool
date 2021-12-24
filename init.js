@@ -95,6 +95,7 @@
         }
 
         document.getElementById('mainForm').onsubmit = createInvoice
+        document.getElementById('submitBtn').onclick = createInvoice
 
     } catch (error) {
         console.log(error)
