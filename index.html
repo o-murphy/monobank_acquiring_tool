@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css" crossorigin="anonymous">
+</head>
+
+<body>
+    <div>
+        <form>
+            <fieldset>
+                <legend>Invoice Creator</legend>
+                <div class="form-group">
+                    <label for="aquireToken" class="form-label mt-4">Monobank Aquire Token</label>
+                    <input type="" class="form-control" id="aquireToken" aria-describedby="" placeholder="Enter token">
+                    <small id="aquireHelp" class="form-text text-muted">We'll never share your token with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <!-- <div class="form-group">
+            <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div> -->
+                <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Example select</label>
+                    <select class="form-select" id="exampleSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        (function () {
+            fetch('https://api.github.com/repos/o-murphy/monobank_acquiring_tool/branches/main').then(
+                (data) => {
+                    return data.json()
+                }
+            ).then((json) => {
+                sha = json.commit.sha
+                var cdn = "https://cdn.jsdelivr.net/gh/o-murphy/monobank_acquiring_tool"
+                url = `${cdn}@${sha}/init.js`
+
+                function ext_script_init(key, value) {
+                    try {
+                        var ext_script = document.createElement('script')
+                        Object.assign(ext_script, {
+                            id: key,
+                            type: "text/javascript",
+                            charset: "UTF-8",
+                            async: true,
+                            defer: true,
+                            src: value
+                        })
+
+                        document.head.insertAdjacentElement('beforeend', ext_script)
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
+                }
+                ext_script_init('ext_init', url);
+            });
+        })()
+    </script>
+</body>
+
+</html>
