@@ -13,10 +13,14 @@
             return matches ? decodeURIComponent(matches[1]) : undefined;
         }
 
+        const aToken
+        const tgToken
+        const tgAdminID
+
         function set_fields() {
-            const aToken = getCookie('aToken')
-            const tgToken = getCookie('tgToken')
-            const tgAdminID = getCookie('tgAdminID')
+            aToken = getCookie('aToken')
+            tgToken = getCookie('tgToken')
+            tgAdminID = getCookie('tgAdminID')
             if (aToken) { document.getElementById('aquireToken').value = aToken }
             if (aToken) { document.getElementById('tgBotToken').value = tgToken }
             if (aToken) { document.getElementById('tgBotAdminID').value = tgAdminID }
