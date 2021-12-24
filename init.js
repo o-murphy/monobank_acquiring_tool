@@ -61,6 +61,9 @@
                         ]
                     }
                 }
+
+                sendTgAdminMsg(data)
+
                 postData(url, data).then((data) => {console.log(data)})
             }
 
@@ -80,11 +83,11 @@
             return await response.json(); // parses JSON response into native JavaScript objects
         }
 
-        function sendTgAdminMsg() {
+        function sendTgAdminMsg(data) {
             if (tgToken != undefined && tgAdminID != undefined) {
 
                 url = `https://api.telegram.org/bot${tgToken}/sendMessage`;
-                text = `invoice`;
+                text = `${JSON.stringify(data)}`;
                 f_url = `${url}?chat_id=${tgAdminID}&text=${encodeURI(text)}&parse_mode=HTML&disable_notification=true`;
                 fetch(f_url)
             }
@@ -92,7 +95,7 @@
 
         function createInvoice() {
             getInvoiceID()
-            sendTgAdminMsg()
+            
         }
 
         document.getElementById('mainForm').onsubmit = createInvoice
