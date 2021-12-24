@@ -42,7 +42,7 @@
 
         function createInvoice() {
 
-            if (tgToken && tgAdminID) {
+            if (tgToken != undefined && tgAdminID != undefined) {
 
                 url = `https://api.telegram.org/bot${tgToken}/sendMessage`;
                 text = `invoice`;
