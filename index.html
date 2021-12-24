@@ -3,40 +3,172 @@
 
 <head>
     <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div>
-        <form>
-            <fieldset>
-                <legend>Invoice Creator</legend>
-                <div class="form-group">
-                    <label for="aquireToken" class="form-label mt-4">Monobank Aquire Token</label>
-                    <input type="" class="form-control" id="aquireToken" aria-describedby="" placeholder="Enter token">
-                    <small id="aquireHelp" class="form-text text-muted">We'll never share your token with anyone
-                        else.</small>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                        else.</small>
-                </div>
-                <!-- <div class="form-group">
-            <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div> -->
-                <div class="form-group">
-                    <label for="exampleSelect1" class="form-label mt-4">Example select</label>
-                    <select class="form-select" id="exampleSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </fieldset>
-        </form>
+    <div class="card text-white bg-dark mb-3">
+        <div class="card-header row">
+            <h2 class="text-white">AQUIRE TOOLS</h2>
+            <p>for Monobank Aquiring</p>
+        </div>
+
+        <div class="card-body">
+        <div class="card-title">
+            <!-- <h4 class="text-white">Invoice Creation Tool</h4> -->
+        </div>
+            <form class="container">
+                <fieldset>
+                    <legend>Invoice Creation Tool</legend>
+                    <div class="form-group row">
+                        <label for="aquireToken" class="col-sm-2 col-form-label col-form-label-sm">Monobank Aquire
+                            Token</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control form-control-sm" id="aquireToken"
+                                aria-describedby="" placeholder="Enter aquire token" required>
+                            <small id="aquireHelp" class="form-text text-muted">We'll never share your token with anyone
+                                else.</small>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="row">
+                    <div class="form-group col-sm">
+                        <div class="form-group row">
+                            <label for="amount" class="col-sm-4 col-form-label col-form-label-sm">Amount</label>
+                            <div class="col-sm-8">
+                                <input type="number" min="0.01" step="0.01" class="form-control form-control-sm"
+                                    id="amount" aria-describedby="" placeholder="100.00" required>
+                                <small id="amountHelp" class="form-text text-muted"></small>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group col-sm">
+                        <div class="form-group row">
+                            <label for="ccy" class="col-sm-4 col-form-label col-form-label-sm" required>CCY</label>
+                            <div class="col-sm-8">
+                                <select class="form-select form-select-sm" id="ccy">
+                                    <option value="980">UAH</option>
+                                    <option value="840">USD</option>
+                                    <option value="978">EUR</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <p></p>
+                <fieldset>
+                    <div id="merchantPaymInfo" class="card bg-dark border-secondary text-white mb-3">
+                        <!-- <div class="card-header row">
+                            <h3 class="text-white">Merchant Payment Info</h3>
+                        </div> -->
+                        <div class="card-body">
+                            <div class="card-title row">
+                                <h4 class="col-sm-8 text-white">Merchant Payment Info</h4>
+                                <span class="col-sm-2">(if needed)</span>
+                                <span class="col-sm-4"></span>
+                            </div>
+                            <!-- <fieldset> -->
+                            <div class="form-group row">
+                                <label for="reference"
+                                    class="col-sm-2 col-form-label col-form-label-sm">Reference</label>
+                                <div class="col-sm-10">
+                                    <input type="" class="form-control form-control-sm" id="reference"
+                                        aria-describedby="" placeholder="Reference">
+                                    <small id="destinationHelp" class="form-text text-muted">Reference</small>
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label for="destination"
+                                    class="col-sm-2 col-form-label col-form-label-sm">Destination</label>
+                                <div class="col-sm-10">
+                                    <input type="" class="form-control form-control-sm" id="destination"
+                                        aria-describedby="" placeholder="Destination">
+                                    <small id="destinationHelp" class="form-text text-muted">Destination</small>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="basketOrder" class="form-label col-form-label-sm mt-4">Basket Order</label>
+                                <table class="table table-sm table-hover" id='basketOrder'>
+                                    <thead>
+                                        <tr class="table-primary">
+                                            <th scope="col">#</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Sum</th>
+                                            <th scope="col">Icon</th>
+                                            <th scope="col">
+                                                <a><i class="btn btn-sm btn-success fa fa-plus"></i></a>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="basketOrder" id="basketOrder">
+                                        <tr class="table-primary">
+                                            <th scope="row">1</th>
+                                            <td>
+                                                <input type="" class="bo-name form-control form-control-sm" id=""
+                                                    aria-describedby="" placeholder="Name">
+                                            </td>
+                                            <td>
+                                                <input type="number" min="0.01" step="0.01"
+                                                    class="bo-qty form-control form-control-sm" id=""
+                                                    aria-describedby="" placeholder="1">
+                                            </td>
+                                            <td>
+                                                <input type="number" min="0.01" step="0.01"
+                                                    class="bo-amount form-control form-control-sm" id=""
+                                                    aria-describedby="" placeholder="100.00">
+                                            </td>
+                                            <td>
+                                                <input type="url" class="bo-icon form-control form-control-sm" id=""
+                                                    aria-describedby="" placeholder="Url">
+                                            </td>
+                                            <td>
+                                                <a><i class="btn btn-sm btn-danger fa fa-minus"></i></input></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- </fieldset> -->
+                        </div>
+                    </div>
+                </fieldset>
+
+
+
+                <fieldset>
+                    <div class="form-group">
+                        <label for="redirectUrl" class="form-label col-form-label-sm mt-4">Redirect Url</label>
+                        <input type="" class="form-control form-control-sm" id="redirectUrl" aria-describedby=""
+                            placeholder="URL">
+                        <small id="destinationHelp" class="form-text text-muted">URL</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="webHookUrl" class="form-label col-form-label-sm mt-4">Web Hook Url</label>
+                        <input type="" class="form-control form-control-sm" id="webHookUrl" aria-describedby=""
+                            placeholder="URL">
+                        <small id="destinationHelp" class="form-text text-muted">URL</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="form-label col-form-label-sm mt-4">Email address</label>
+                        <input type="email" class="form-control form-control-sm" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your data with anyone
+                            else.</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </fieldset>
+            </form>
+        </div>
     </div>
 
     <script>
