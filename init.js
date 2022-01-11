@@ -53,7 +53,7 @@
             sess.initSession('https://wialon.trans-control.com')
             sess.loginAuthHash(hash, "", // trying login 
                     function (code) { // login callback
-                        if (code) msg(wialon.core.Errors.getErrorText(code)); // login failed, print error
+                        if (code) console.log(wialon.core.Errors.getErrorText(code)); // login failed, print error
                         else console.log("Logged successfully"); // login succeed
                     })
 
