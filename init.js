@@ -27,7 +27,8 @@
         const params = {
             aToken: get('atoken'),
             tgToken: get('tgtoken'),
-            tgAdminID: get('tgadminid')
+            tgAdminID: get('tgadminid'),
+            wlnHash: get('wlnhash')
         }
 
         let date = new Date(Date.now() + (31 * 86400e3));
@@ -41,6 +42,7 @@
         });
 
         set_fields()
+
 
         function createInvoice() {
             if (aToken) {
