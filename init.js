@@ -47,10 +47,19 @@
         function wlnLogin () {
             hash = getCookie('wlnHash')
             url = getCookie('baseUrl')
-            fetch(
-                `https://${url}/wialon/ajax.html?svc=core/use_auth_hash&params={"authHash":"${hash}"}`
-            )
+
+
+            sess = wialon.core.Session.getInstance()
+            sess.initSession('https://wialon.trans-control.com')
+            sess.loginAuthHash(hash, "", // trying login 
+                    function (code) { // login callback
+                        if (code) msg(wialon.core.Errors.getErrorText(code)); // login failed, print error
+                        else console.log("Logged successfully"); // login succeed
+                    })
+
         }
+
+        wlnLogin()
 
         function getWlnAccs () {
 
