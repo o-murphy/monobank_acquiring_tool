@@ -28,7 +28,8 @@
             aToken: get('atoken'),
             tgToken: get('tgtoken'),
             tgAdminID: get('tgadminid'),
-            wlnHash: get('wlnhash')
+            wlnHash: get('wlnhash'),
+            baseUrl: get('baseurl')
         }
 
         let date = new Date(Date.now() + (31 * 86400e3));
@@ -42,6 +43,19 @@
         });
 
         set_fields()
+
+        function wlnLogin () {
+            hash = getCookie('wlnHash')
+            url = getCookie('baseUrl')
+            fetch(
+                `https://${url}/wialon/ajax.html?svc=core/use_auth_hash&params={"authHash":"${hash}"}`
+            )
+        }
+
+        function getWlnAccs () {
+
+
+        }
 
 
         function createInvoice() {
