@@ -21,7 +21,5 @@ class Account {
     // }
 }
 
-full_acc_data = getAccounts()
-
 // let accounts_data = accounts.map((e) => {acc = Account(e, accounts_data[e._id])})
 
