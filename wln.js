@@ -57,7 +57,10 @@ class Token {
     p = "{}"
 }
 
+
+
 function getAccounts() {
+    let accounts, accounts_data
     sess = wialon.core.Session.getInstance()
     sess.loadLibrary("resourceAccounts")
     let flags = wialon.item.Item.dataFlag.base | wialon.item.Item.dataFlag.billingProps;
@@ -73,6 +76,7 @@ function getAccounts() {
             })
         }
     )
+    return accounts, accounts_data
 }
 
 if (getCookie('wlnHash') && getCookie('baseUrl') && !getCookie('wlnToken')) {
@@ -84,6 +88,6 @@ if (getCookie('baseUrl') && getCookie('wlnToken')) {
     wlnLoginToken()
 }
 
-let accounts, accounts_data
+
 
 getAccounts()
