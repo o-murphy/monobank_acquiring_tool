@@ -53,6 +53,10 @@ class Token {
     p = "{}"
 }
 
+function getAccounts() {
+    
+}
+
 if (getCookie('wlnHash') && getCookie('baseUrl') && !getCookie('wlnToken')) {
     wlnLoginHash()
     wlnUpdateToken()
