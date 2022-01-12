@@ -65,12 +65,11 @@ function getAccounts() {
         [{ type: "type", data: "avl_resource", flags: flags, mode: 0 }],
         function (code) {
             if (code) { console.log(wialon.core.Errors.getErrorText(code)); return; }
-            let resources = sess.getItems("avl_resource");
+            resources = sess.getItems("avl_resource");
             accounts = resources.filter((r) => r.$$user_accountId === r._id).map(e => e._id)
-
-            sess.getAccountsData(accounts, 1, (code, data) => {
-                console.log(code, data);
-                accounts = data
+            sess.getAccountsData(accs, 1, (code, data) => {
+                if (code) { console.log(wialon.core.Errors.getErrorText(code)); return; }
+                accounts_data = data
             })
         }
     )
@@ -85,6 +84,6 @@ if (getCookie('baseUrl') && getCookie('wlnToken')) {
     wlnLoginToken()
 }
 
-let accounts
+let accounts, accounts_data
 
 getAccounts()
