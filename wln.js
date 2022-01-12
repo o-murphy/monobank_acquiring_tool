@@ -10,7 +10,7 @@ function wlnLoginHash () {
             })
 }
 
-function vlnLoginToken() {
+function wlnLoginToken() {
     sess = wialon.core.Session.getInstance()
     sess.initSession(`https://${getCookie('baseUrl')}`)
     sess.loginToken(getCookie('wlnToken'), "", // trying login 
