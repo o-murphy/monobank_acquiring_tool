@@ -5,13 +5,11 @@ function getAccounts() {
         [{type: "type", data: "avl_resource", flags: flags, mode: 0}],
         function (code) {
                 if (code) { console.log(wialon.core.Errors.getErrorText(code)); return; }
-                var units = sess.getItems("avl_resource");
-                units.filter((e) => e.$$user_accountId === e._id)
-                console.log(units)
+                let resources = sess.getItems("avl_resource");
+                accounts = resources.filter((r) => r.$$user_accountId === r._id)
+                console.log(accounts)
         }
     
     )
     
 }
-
-Array.prototype.filter(units)
