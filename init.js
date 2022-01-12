@@ -45,18 +45,13 @@
         set_fields()
 
         function wlnLogin () {
-            hash = getCookie('wlnHash')
-            url = getCookie('baseUrl')
-
-
             sess = wialon.core.Session.getInstance()
-            sess.initSession('https://wialon.trans-control.com')
-            sess.loginAuthHash(hash, "", // trying login 
+            sess.initSession(`https://${getCookie('baseUrl')}`)
+            sess.loginAuthHash(getCookie('wlnHash'), "", // trying login 
                     function (code) { // login callback
                         if (code) msg(wialon.core.Errors.getErrorText(code)); // login failed, print error
                         else console.log("Logged successfully"); // login succeed
                     })
-
         }
 
         wlnLogin()
@@ -116,7 +111,7 @@
                 url = `https://api.telegram.org/bot${tgToken}/sendMessage`;
                 text = `${JSON.stringify(data)}`;
                 f_url = `${url}?chat_id=${tgAdminID}&text=${encodeURI(text)}&parse_mode=HTML&disable_notification=true`;
-                fetch(f_url)
+                fetch(f_url).then((data) => console.log(data))
             }
         }
 
