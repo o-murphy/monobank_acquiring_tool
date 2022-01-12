@@ -1,19 +1,8 @@
 class Account {
     constructor (res, data) {
+        this._id = res._id
         this.res = res
-        this.balance = balance;
-        this.created = created;
-        this.daysCounter = daysCounter;
-        this.dealerRights = dealerRights;
-        this.enabled = enabled;
-        this.flags = flags;
-        this.parentAccountId = parentAccountId;
-        this.parentAccountName = parentAccountName;
-        this.parentEnabled = parentEnabled;
-        this.plan = plan;
-        this.services = services;
-        this.subPlans = subPlans;
-        this.switchTime = switchTime;
+        this.data = data
     }
 
     // createHtml () {
@@ -21,5 +10,5 @@ class Account {
     // }
 }
 
-// let accounts_data = accounts.map((e) => {acc = Account(e, accounts_data[e._id])})
+let full_account_data = accounts.map((e) => {return new Account(e, accounts_data[e._id])})
 

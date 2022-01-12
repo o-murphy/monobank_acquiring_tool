@@ -69,8 +69,9 @@ function getAccounts() {
         function (code) {
             if (code) { console.log(wialon.core.Errors.getErrorText(code)); return; }
             resources = sess.getItems("avl_resource");
-            accounts = resources.filter((r) => r.$$user_accountId === r._id).map(e => e._id)
-            sess.getAccountsData(accounts, 1, (code, data) => {
+            accounts = resources.filter((r) => r.$$user_accountId === r._id)
+            let accs = accounts.map(e => e._id)
+            sess.getAccountsData(accs, 1, (code, data) => {
                 if (code) { console.log(wialon.core.Errors.getErrorText(code)); return; }
                 accounts_data = data
             })
