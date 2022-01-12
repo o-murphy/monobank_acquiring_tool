@@ -87,7 +87,3 @@ if (getCookie('wlnHash') && getCookie('baseUrl') && !getCookie('wlnToken')) {
 if (getCookie('baseUrl') && getCookie('wlnToken')) {
     wlnLoginToken()
 }
-
-
-
-getAccounts()
