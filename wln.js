@@ -68,7 +68,10 @@ function getAccounts() {
             let resources = sess.getItems("avl_resource");
             accounts = resources.filter((r) => r.$$user_accountId === r._id).map(e => e._id)
 
-            sess.getAccountsData(accounts, 1, (code, data) => console.log(code, data))
+            sess.getAccountsData(accounts, 1, (code, data) => {
+                console.log(code, data);
+                accounts = data
+            })
         }
     )
 }
@@ -81,3 +84,7 @@ if (getCookie('wlnHash') && getCookie('baseUrl') && !getCookie('wlnToken')) {
 if (getCookie('baseUrl') && getCookie('wlnToken')) {
     wlnLoginToken()
 }
+
+let accounts
+
+getAccounts()
