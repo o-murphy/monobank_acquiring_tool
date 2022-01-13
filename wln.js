@@ -83,6 +83,6 @@ if (getCookie('wlnHash') && getCookie('baseUrl') && !getCookie('wlnToken')) {
     wlnUpdateToken()
 }
 
-if (getCookie('baseUrl') && getCookie('wlnToken')) {
+else if (getCookie('baseUrl') && getCookie('wlnToken')) {
     wlnLoginToken()
 }
