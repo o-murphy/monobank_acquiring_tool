@@ -79,6 +79,18 @@ function getAccounts() {
     )
 }
 
+class Account {
+    constructor (res, data) {
+        this._id = res._id
+        this.res = res
+        this.data = data
+    }
+
+    // createHtml () {
+    //     document.createElement('')
+    // }
+}
+
 if (getCookie('wlnHash') && getCookie('baseUrl') && !getCookie('wlnToken')) {
     wlnLoginHash()
     wlnUpdateToken()
@@ -86,4 +98,9 @@ if (getCookie('wlnHash') && getCookie('baseUrl') && !getCookie('wlnToken')) {
 
 else if (getCookie('baseUrl') && getCookie('wlnToken')) {
     wlnLoginToken()
+}
+
+if (sess.getCurrUser.$$user_name) {
+    getAccounts()
+    full_account_data = accounts.map((e) => {return new Account(e, accounts_data[e._id])})
 }
