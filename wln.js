@@ -1,5 +1,5 @@
 function wlnLoginHash() {
-    sess = wialon.core.Session.getInstance()
+    let sess = wialon.core.Session.getInstance()
     sess.initSession(`https://${getCookie('baseUrl')}`)
     sess.loginAuthHash(getCookie('wlnHash'), "", // trying login 
         function (code, data) { // login callback
@@ -11,7 +11,7 @@ function wlnLoginHash() {
 }
 
 function wlnLoginToken() {
-    sess = wialon.core.Session.getInstance()
+    let sess = wialon.core.Session.getInstance()
     sess.initSession(`https://${getCookie('baseUrl')}`)
     sess.loginToken(getCookie('wlnToken'), "", // trying login 
         function (code, data) { // login callback
@@ -23,7 +23,7 @@ function wlnLoginToken() {
 }
 
 function getTokens() {
-    sess = wialon.core.Session.getInstance()
+    let sess = wialon.core.Session.getInstance()
     sess.listTokens(
         sess.getCurrUser()._id, (code, data) => {
             if (code, data) console.log(wialon.core.Errors.getErrorText(code));
@@ -37,7 +37,7 @@ function getTokens() {
 }
 
 function wlnUpdateToken() {
-    sess = wialon.core.Session.getInstance()
+    let sess = wialon.core.Session.getInstance()
     sess.updateToken(
         'create',
         new Token, (code, data) => {
@@ -61,7 +61,7 @@ let accounts, accounts_data
 
 function getAccounts() {
     
-    sess = wialon.core.Session.getInstance()
+    let sess = wialon.core.Session.getInstance()
     sess.loadLibrary("resourceAccounts")
     let flags = wialon.item.Item.dataFlag.base | wialon.item.Item.dataFlag.billingProps;
     sess.updateDataFlags(
