@@ -85,10 +85,6 @@ class Account {
         this.res = res
         this.data = data
     }
-
-    // createHtml () {
-    //     document.createElement('')
-    // }
 }
 
 if (getCookie('wlnHash') && getCookie('baseUrl') && !getCookie('wlnToken')) {
@@ -98,11 +94,6 @@ if (getCookie('wlnHash') && getCookie('baseUrl') && !getCookie('wlnToken')) {
 
 else if (getCookie('baseUrl') && getCookie('wlnToken')) {
     wlnLoginToken()
-}
-
-if (sess.getCurrUser.$$user_name) {
-    getAccounts()
-    full_account_data = accounts.map((e) => {return new Account(e, accounts_data[e._id])})
 }
 
 async function test() {
@@ -115,7 +106,7 @@ async function test() {
 
 function waitCallBack (func, args) {
     return new Promise(
-        function(resolve, reject) {
+        function(resolve, reject, func) {
             func(args, (code, data) => {
                 resolve(wialon.core.Errors.getErrorText(code), data)
             })
