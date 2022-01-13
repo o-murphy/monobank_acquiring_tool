@@ -1,5 +1,5 @@
 function wlnLoginHash() {
-    let sess = wialon.core.Session.getInstance()
+    sess = wialon.core.Session.getInstance()
     sess.initSession(`https://${getCookie('baseUrl')}`)
     sess.loginAuthHash(getCookie('wlnHash'), "", // trying login 
         function (code, data) { // login callback
@@ -11,7 +11,7 @@ function wlnLoginHash() {
 }
 
 function wlnLoginToken() {
-    let sess = wialon.core.Session.getInstance()
+    sess = wialon.core.Session.getInstance()
     sess.initSession(`https://${getCookie('baseUrl')}`)
     sess.loginToken(getCookie('wlnToken'), "", // trying login 
         function (code, data) { // login callback
