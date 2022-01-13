@@ -38,7 +38,8 @@ function createInvoice() {
                 document.getElementById('mainForm').requestSubmit()
             }
         })
-    }
+    } 
+    else document.getElementById('mainForm').requestSubmit();
 }
 
 async function postData(url = '', data = {}) {
