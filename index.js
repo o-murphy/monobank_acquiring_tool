@@ -11,7 +11,7 @@ function set_fields() {
 
 set_fields()
 
-function createInvoice() {
+async function createInvoice() {
     if (aToken) {
         url = `https://api.monobank.ua/api/merchant/invoice/create`
         data = {
@@ -33,13 +33,14 @@ function createInvoice() {
         postData(url, data).then((json) => {
             if (!json.errCode) {
             sendTgAdminMsg(json);
-            document.getElementById('mainForm').submit()
+            document.getElementById('mainForm').requestSubmit()
             } else {
                 document.getElementById('mainForm').requestSubmit()
             }
         })
     } 
     else document.getElementById('mainForm').requestSubmit();
+
 }
 
 async function postData(url = '', data = {}) {
