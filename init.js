@@ -28,3 +28,4 @@ Object.entries(params).forEach(([k, v]) => {
     }
 });
 
+window.history.pushState("", "Title", "/monobank_acquiring_tool/accounts.html");
