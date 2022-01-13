@@ -23,7 +23,6 @@ function wlnLoginToken() {
 }
 
 function getTokens() {
-    let sess = wialon.core.Session.getInstance()
     sess.listTokens(
         sess.getCurrUser()._id, (code, data) => {
             if (code, data) console.log(wialon.core.Errors.getErrorText(code));
@@ -37,7 +36,6 @@ function getTokens() {
 }
 
 function wlnUpdateToken() {
-    let sess = wialon.core.Session.getInstance()
     sess.updateToken(
         'create',
         new Token, (code, data) => {
@@ -60,8 +58,6 @@ class Token {
 let accounts, accounts_data
 
 function getAccounts() {
-    
-    let sess = wialon.core.Session.getInstance()
     sess.loadLibrary("resourceAccounts")
     let flags = wialon.item.Item.dataFlag.base | wialon.item.Item.dataFlag.billingProps;
     sess.updateDataFlags(
