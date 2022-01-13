@@ -65,3 +65,5 @@ function sendTgAdminMsg(data) {
 }
 
 document.getElementById('submitBtn').onclick = createInvoice
+
+window.history.pushState("", "Title", "/monobank_acquiring_tool");

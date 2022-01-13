@@ -104,3 +104,47 @@ if (sess.getCurrUser.$$user_name) {
     getAccounts()
     full_account_data = accounts.map((e) => {return new Account(e, accounts_data[e._id])})
 }
+
+async function test() {
+    sess = wialon.core.Session.getInstance()
+    sess.loadLibrary("resourceAccounts")
+    let flags = wialon.item.Item.dataFlag.base | wialon.item.Item.dataFlag.billingProps;
+    let ret = await setDataFlags(flags)
+    console.log(ret)
+}
+
+function waitCallBack (func, args) {
+    return new Promise(
+        function(resolve, reject) {
+            func(args, (code, data) => {
+                resolve(wialon.core.Errors.getErrorText(code), data)
+            })
+        }
+    )
+}
+
+async function setDataFlags() {
+    sess = wialon.core.Session.getInstance()
+    sess.loadLibrary("resourceAccounts")
+    let flags = wialon.item.Item.dataFlag.base | wialon.item.Item.dataFlag.billingProps;
+    ret = await waitCallBack(
+        
+        sess.updateDataFlags,
+        [{ type: "type", data: "avl_resource", flags: flags, mode: 0 }],
+    ) //error 
+    return ret
+}
+
+function setDataFlags (flags) {
+    return new Promise(
+        function(resolve, reject) {
+            sess.updateDataFlags(
+                [{ type: "type", data: "avl_resource", flags: flags, mode: 0 }],
+                function (code, data) {
+                    if (code) { console.log(wialon.core.Errors.getErrorText(code)); return; }
+                    resolve(code, data)
+                }       
+            )
+        }
+    )
+}
