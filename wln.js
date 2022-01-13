@@ -65,8 +65,9 @@ function getAccounts() {
     let flags = wialon.item.Item.dataFlag.base | wialon.item.Item.dataFlag.billingProps;
     sess.updateDataFlags(
         [{ type: "type", data: "avl_resource", flags: flags, mode: 0 }],
-        function (code) {
+        function (code, data) {
             if (code) { console.log(wialon.core.Errors.getErrorText(code)); return; }
+            console.log(data)
             resources = sess.getItems("avl_resource");
             accounts = resources.filter((r) => r.$$user_accountId === r._id)
             let accs = accounts.map(e => e._id)
