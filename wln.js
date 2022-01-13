@@ -57,7 +57,7 @@ class Token {
     p = "{}"
 }
 
-let accounts, accounts_data
+var accounts, accounts_data
 
 function getAccounts() {
     sess = wialon.core.Session.getInstance()
@@ -106,7 +106,7 @@ async function test() {
 
 function waitCallBack (func, args) {
     return new Promise(
-        function(resolve, reject, func) {
+        (resolve, reject) => {
             func(args, (code, data) => {
                 resolve(wialon.core.Errors.getErrorText(code), data)
             })
@@ -126,16 +126,5 @@ async function setDataFlags() {
     return ret
 }
 
-function setDataFlags (flags) {
-    return new Promise(
-        function(resolve, reject) {
-            sess.updateDataFlags(
-                [{ type: "type", data: "avl_resource", flags: flags, mode: 0 }],
-                function (code, data) {
-                    if (code) { console.log(wialon.core.Errors.getErrorText(code)); return; }
-                    resolve(code, data)
-                }       
-            )
-        }
-    )
-}
+
+var getAccs = getAccounts
