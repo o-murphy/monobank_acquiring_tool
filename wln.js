@@ -1,3 +1,8 @@
+var full_account_data
+
+
+
+
 function wlnLoginHash() {
     sess = wialon.core.Session.getInstance()
     sess.initSession(`https://${getCookie('baseUrl')}`)
@@ -6,6 +11,7 @@ function wlnLoginHash() {
             if (code, data) console.log(wialon.core.Errors.getErrorText(code)); // login failed, print error
             else {
                 console.log("Logged successfully via hash");
+                getAccounts();
             } // login succeed
         })
 }
@@ -18,6 +24,7 @@ function wlnLoginToken() {
             if (code, data) console.log(wialon.core.Errors.getErrorText(code)); // login failed, print error
             else {
                 console.log("Logged successfully via token");
+                getAccounts();
             } // login succeed
         })
 }
@@ -57,9 +64,7 @@ class Token {
     p = "{}"
 }
 
-var full_account_data
 
-getAccounts();
 
 function getAccounts() {
     sess = wialon.core.Session.getInstance()
