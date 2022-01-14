@@ -57,7 +57,7 @@ class Token {
     p = "{}"
 }
 
-var accounts, accounts_data
+var full_account_data
 
 function getAccounts() {
     sess = wialon.core.Session.getInstance()
@@ -74,7 +74,8 @@ function getAccounts() {
             sess.getAccountsData(accs, 1, (code, data) => {
                 if (code) { console.log(wialon.core.Errors.getErrorText(code)); return; }
                 accounts_data = data
-                console.log('ready')
+                getAccounts();
+                full_account_data = accounts.map((e) => {return new Account(e, accounts_data[e._id])})
             })
         }
     )
@@ -128,5 +129,3 @@ async function setDataFlags() {
 }
 
 
-getAccounts();
-full_account_data = accounts.map((e) => {return new Account(e, accounts_data[e._id])})
