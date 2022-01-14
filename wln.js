@@ -59,6 +59,8 @@ class Token {
 
 var full_account_data
 
+getAccounts();
+
 function getAccounts() {
     sess = wialon.core.Session.getInstance()
     sess.loadLibrary("resourceAccounts")
@@ -74,7 +76,7 @@ function getAccounts() {
             sess.getAccountsData(accs, 1, (code, data) => {
                 if (code) { console.log(wialon.core.Errors.getErrorText(code)); return; }
                 accounts_data = data
-                getAccounts();
+                
                 full_account_data = accounts.map((e) => {return new Account(e, accounts_data[e._id])})
             })
         }
