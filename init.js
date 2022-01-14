@@ -27,4 +27,3 @@ Object.entries(params).forEach(([k, v]) => {
         document.cookie = encodeURIComponent(k) + '=' + encodeURIComponent(v);
     }
 });
-

@@ -74,6 +74,7 @@ function getAccounts() {
             sess.getAccountsData(accs, 1, (code, data) => {
                 if (code) { console.log(wialon.core.Errors.getErrorText(code)); return; }
                 accounts_data = data
+                console.log('ready')
             })
         }
     )
@@ -127,4 +128,5 @@ async function setDataFlags() {
 }
 
 
-var getAccs = getAccounts
+getAccounts();
+console.log(accounts)

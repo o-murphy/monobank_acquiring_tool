@@ -1,7 +1,5 @@
-
-
-getAccs();
-console.log(accounts)
+// getAccounts();
+// console.log(accounts)
 // full_account_data = accounts.map((e) => {return new Account(e, accounts_data[e._id])})
 
 
