@@ -76,4 +76,5 @@ try {
     window.Telegram.WebApp.MainButton.setParams({color: '#2481fc'});
     window.Telegram.WebApp.MainButton.setText('Close');
     window.Telegram.WebApp.MainButton.show();
+    window.Telegram.WebApp.themeParams = {bg_color: '#2081fc'}
 } catch {console.log('tgAppErr')}
