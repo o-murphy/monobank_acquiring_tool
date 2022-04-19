@@ -73,6 +73,6 @@ try {
 } catch {}
 
 try {
-    tgapp = window.Telegram.WebApp
-    tgapp.MainButton.setParams(color='red')
+    window.Telegram.WebApp.MainButton.setParams(color='red')
+    window.Telegram.WebApp.MainButton.setText('Close')
 } catch {}
