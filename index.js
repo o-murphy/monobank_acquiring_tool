@@ -71,3 +71,8 @@ document.getElementById('submitBtn').onclick = createInvoice
 try {
     window.history.pushState("", "Title", "/monobank_acquiring_tool");
 } catch {}
+
+try {
+    tgapp = window.Telegram.WebApp
+    tgapp.MainButton.setParams(color='red')
+} catch {}
