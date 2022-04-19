@@ -73,6 +73,6 @@ try {
 } catch {}
 
 try {
-    window.Telegram.WebApp.MainButton.setParams(color='red')
-    window.Telegram.WebApp.MainButton.setText('Close')
-} catch {}
+    window.Telegram.WebApp.MainButton.setParams({color: '#2481fc'});
+    window.Telegram.WebApp.MainButton.setText('Close');
+} catch {console.log('tgAppErr')}
